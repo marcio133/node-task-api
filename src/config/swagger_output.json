@@ -1,0 +1,183 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Tasks API",
+    "description": "Fake Tasks API",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/task/": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Tasks Controller.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Tasks Controller.",
+        "parameters": [
+          {
+            "name": "task",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "priority": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "title",
+                "description",
+                "priority"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/api/task/{id}": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Tasks Controller.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/task/{id}/updateStatus": {
+      "put": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Tasks Controller.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "task",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "isConcluded": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "isConcluded"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/task/{id}/": {
+      "put": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Tasks Controller.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "task",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "priority": {
+                  "type": "integer"
+                }
+              },
+              "required": []
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Tasks Controller.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
